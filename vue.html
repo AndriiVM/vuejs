@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Product App</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div class="nav-bar"></div>
+	
+		<div id="app">
+			<div class="product">
+				<div class="product-image">
+					<img v-bind:src="image" v-bind:href="linka" v-bind:title="title" v-bind:alt="altText">
+				</div>
+			
+				<div class="product-info">
+					<h1>{{product}}</h1>
+					<a target="_blank" :href="link">Like this.</a>
+				</div>
+			</div>
+		</div>
+		<script src="https://unpkg.com/vue"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
