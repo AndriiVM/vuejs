@@ -87,3 +87,8 @@ body {
     color: #16C0B0;
     text-decoration: underline;
   }
+
+  .disactiveTab {
+    color: #bec5d8;
+    text-decoration: line-through;
+  }

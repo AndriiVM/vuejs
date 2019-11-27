@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Product App</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="./assets/style.css">
 	</head>
 	<body>
 		<div class="nav-bar"></div>
@@ -9,12 +9,30 @@
 		<div id="app">
 			<div class="product">
 				<div class="product-image">
-					<img v-bind:src="image" v-bind:href="linka" v-bind:title="title" v-bind:alt="altText">
+                    <img v-bind:src="image" v-bind:href="linka" v-bind:title="title" v-bind:alt="altText">
 				</div>
 			
 				<div class="product-info">
-					<h1>{{product}}</h1>
-					<a target="_blank" :href="link">Like this.</a>
+					<h1>{{ product }}</h1>
+                    <p v-if="inStock">In stock</p>
+                    <p v-else :class="{disactiveTab: !inStock}">Out of stock!</p>
+                    <ul>
+                        <li v-for="detail in details">{{ detail }}</li>
+                    </ul>
+                    <div v-for="variant in variants"
+                         :key="variant.variantId"
+                        class="color-box"
+                         :style="{backgroundColor: variant.variantColor}"
+                         @mouseover="updateProduct(variant.variantImage)"
+                    >
+                    </div>
+                    <button v-on:click="addToCart"
+                            :disabled="!inStock"
+                            class = "test"
+                            :class="{ disabledButton: !inStock }">Add to Cart</button>
+                    <div class="cart">
+                        <p>Cart({{cart}})</p>
+                    </div>
 				</div>
 			</div>
 		</div>
