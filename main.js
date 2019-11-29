@@ -93,6 +93,7 @@ computed:{
 }
 })
 var ap = new Vue({
+    //asasas
     el: '#app',
     data:{
         premium:false
